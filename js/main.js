@@ -1,26 +1,25 @@
 const TEMPLATE = document.querySelector(`#templates`).content;
-const WINDOWS = Array.from(TEMPLATE.querySelectorAll(`.main`));
+const INTERFACES = Array.from(TEMPLATE.querySelectorAll(`.main`));
 const APP = document.querySelector(`.app`);
-const PREV = 37;
-const NEXT = 39;
+const PREV_INTERFACE_KEYCODE = 37;
+const NEXT_INTERFACE_KEYCODE = 39;
 let curWindowNum = 0;
 
 function replaceWindows(num) {
-  APP.innerHTML = WINDOWS[num].outerHTML;
+  APP.innerHTML = INTERFACES[num].outerHTML;
   curWindowNum = num;
 }
 
 function switchWindow(e) {
-  if (e.keyCode === PREV && e.altKey) {
+  if (e.keyCode === PREV_INTERFACE_KEYCODE && e.altKey) {
     if (curWindowNum !== 0) {
       replaceWindows(curWindowNum - 1);
       return;
     }
   }
-  if (e.keyCode === NEXT && e.altKey) {
-    if (curWindowNum !== WINDOWS.length - 1) {
+  if (e.keyCode === NEXT_INTERFACE_KEYCODE && e.altKey) {
+    if (curWindowNum !== INTERFACES.length - 1) {
       replaceWindows(curWindowNum + 1);
-      return;
     }
   }
 }
