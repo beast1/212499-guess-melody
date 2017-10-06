@@ -1,29 +1,31 @@
-const t = document.querySelector(`#templates`).content;
-const windows = [...Array.from(t.querySelectorAll(`section`))];
+const TEMPLATE = document.querySelector(`#templates`).content;
+const WINDOWS = Array.from(TEMPLATE.querySelectorAll(`.main`));
+const APP = document.querySelector(`.app`);
+const PREV = 37;
+const NEXT = 39;
 let curWindowNum = 0;
 
 function replaceWindows(num) {
-  const app = document.querySelector(`.app`);
-  app.innerHTML = windows[num].outerHTML;
+  APP.innerHTML = WINDOWS[num].outerHTML;
   curWindowNum = num;
+}
+
+function switchWindow(e) {
+  if (e.keyCode === PREV && e.altKey) {
+    if (curWindowNum !== 0) {
+      replaceWindows(curWindowNum - 1);
+      return;
+    }
+  }
+  if (e.keyCode === NEXT && e.altKey) {
+    if (curWindowNum !== WINDOWS.length - 1) {
+      replaceWindows(curWindowNum + 1);
+      return;
+    }
+  }
 }
 
 replaceWindows(0);
 
-const prev = 37;
-const next = 39;
-
-function switchWindow(e) {
-  if (e.keyCode === prev && e.altKey) {
-    if (curWindowNum !== 0) {
-      replaceWindows(curWindowNum - 1);
-    }
-  }
-  if (e.keyCode === next && e.altKey) {
-    if (curWindowNum !== windows.length) {
-      replaceWindows(curWindowNum + 1);
-    }
-  }
-}
 document.addEventListener(`keydown`, switchWindow);
 
