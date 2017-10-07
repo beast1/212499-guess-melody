@@ -1,38 +1,54 @@
 const TEMPLATE = document.querySelector(`#templates`).content;
 const INTERFACES = Array.from(TEMPLATE.querySelectorAll(`.main`));
-const APP = document.querySelector(`.app`);
 const PREV_INTERFACE_KEYCODE = 37;
 const NEXT_INTERFACE_KEYCODE = 39;
-let curWindowNum = 0;
 
 /**
- * Переключение между игровыми интерфейсами
- * @param {number} num порядковый номер интерфейса
+ * Смена действующего интерфейса по переданному направлению
+ * @param {string} direction направление в которм измениться интерфейс
  */
-function replaceWindows(num) {
-  APP.innerHTML = INTERFACES[num].outerHTML;
-  curWindowNum = num;
+function createInsertNextInterface() {
+  const APP = document.querySelector(`.app`);
+  const len = INTERFACES.length - 1;
+  let num = 0;
+  return function (direction) {
+    switch (direction) {
+      case `next`:
+        num += 1;
+        break;
+      case `prev`:
+        num -= 1;
+        break;
+    }
+
+    if (num < 0) {
+      num = 0;
+    }
+    if (num > len) {
+      num = len;
+    }
+
+    APP.innerHTML = INTERFACES[num].outerHTML;
+  };
 }
+
+const insertNextInterface = createInsertNextInterface();
 
 /**
  * Переключение между интерфейсами по нажатию на клавиши
  * @param {object} e событие
  */
-function switchWindow(e) {
+function switchInterface(e) {
   if (e.keyCode === PREV_INTERFACE_KEYCODE && e.altKey) {
-    if (curWindowNum !== 0) {
-      replaceWindows(curWindowNum - 1);
-      return;
-    }
+    insertNextInterface(`prev`);
+    return;
   }
   if (e.keyCode === NEXT_INTERFACE_KEYCODE && e.altKey) {
-    if (curWindowNum !== INTERFACES.length - 1) {
-      replaceWindows(curWindowNum + 1);
-    }
+    insertNextInterface(`next`);
   }
 }
 
-replaceWindows(0);
+insertNextInterface(0);
 
-document.addEventListener(`keydown`, switchWindow);
+document.addEventListener(`keydown`, switchInterface);
 
