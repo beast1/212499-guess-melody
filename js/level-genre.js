@@ -92,10 +92,12 @@ const BTNS_ANSWER_INPUT    = Array.from(LEVEL_GENRE_ELEMENT.querySelectorAll(`.g
 const BTNS_ANSWER_CONFIRM    = LEVEL_GENRE_ELEMENT.querySelector(`.genre-answer-send`);
 
 function validateBtnsAnswer() {
-  BTNS_ANSWER_CONFIRM.setAttribute(`disabled`, ``);
   const BTNS_ANSWER_INPUT_CHECKED = BTNS_ANSWER_INPUT.filter((BTN_ANSWER_INPUT) => BTN_ANSWER_INPUT.checked !== false ? true : false);
+  console.log(BTNS_ANSWER_INPUT_CHECKED);
   if (BTNS_ANSWER_INPUT_CHECKED.length > 0) {
     BTNS_ANSWER_CONFIRM.removeAttribute(`disabled`);
+  } else {
+    BTNS_ANSWER_CONFIRM.setAttribute(`disabled`, ``);
   }
 //  for (let i = 0; i < BTNS_ANSWER.length; i++) {
 //    console.log(btnsAnswerInput[i].checked);
