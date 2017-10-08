@@ -1,6 +1,6 @@
 import {createElementByTemplate} from './util';
 
-const html = `
+const HTML = `
   <section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
@@ -12,6 +12,6 @@ const html = `
     <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
   </section>`;
 
-const resultWinElement = createElementByTemplate(html);
+const RESULT_WIN_ELEMENT = createElementByTemplate(HTML);
 
-export default resultWinElement;
+export default RESULT_WIN_ELEMENT;

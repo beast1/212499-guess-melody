@@ -1,9 +1,9 @@
 import {createElementByTemplate, insertInterface} from './util';
-import resultWinElement from './result-win';
-import resultLostTimeElement from './result-lost-time';
-import resultLostTryElement from './result-lost-try';
+import RESULT_WIN_ELEMENT from './result-win';
+import RESULT_LOST_TIME_ELEMENT from './result-lost-time';
+import RESULT_LOST_TRY_ELEMENT from './result-lost-try';
 
-const html = `
+const HTML                = `
 <section class="main main--level main--level-genre">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
@@ -86,36 +86,36 @@ const html = `
       </form>
     </div>
   </section>`;
-const levelGenreElement = createElementByTemplate(html);
-const btnsAnswer = Array.from(levelGenreElement.querySelectorAll(`.genre-answer-check`));
-const btnsAnswerInputs = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
-const btnAnswerConfirm = levelGenreElement.querySelector(`.genre-answer-send`);
+const LEVEL_GENRE_ELEMENT = createElementByTemplate(HTML);
+const BTNS_ANSWER          = Array.from(LEVEL_GENRE_ELEMENT.querySelectorAll(`.genre-answer-check`));
+const BTNS_ANSWER_INPUT    = Array.from(LEVEL_GENRE_ELEMENT.querySelectorAll(`.genre-answer input[name='answer']`));
+const BTNS_ANSWER_CONFIRM    = LEVEL_GENRE_ELEMENT.querySelector(`.genre-answer-send`);
 
 function validateBtnsAnswer() {
-  btnAnswerConfirm.setAttribute(`disabled`, ``);
-  const btnsAnswerInputsChecked = btnsAnswerInputs.filter((btnsAnswerInput) => btnsAnswerInput.checked !== false ? true : false);
-  if (btnsAnswerInputsChecked.length > 0) {
-    btnAnswerConfirm.removeAttribute(`disabled`);
+  BTNS_ANSWER_CONFIRM.setAttribute(`disabled`, ``);
+  const BTNS_ANSWER_INPUT_CHECKED = BTNS_ANSWER_INPUT.filter((BTN_ANSWER_INPUT) => BTN_ANSWER_INPUT.checked !== false ? true : false);
+  if (BTNS_ANSWER_INPUT_CHECKED.length > 0) {
+    BTNS_ANSWER_CONFIRM.removeAttribute(`disabled`);
   }
-//  for (let i = 0; i < btnsAnswer.length; i++) {
+//  for (let i = 0; i < BTNS_ANSWER.length; i++) {
 //    console.log(btnsAnswerInput[i].checked);
-//    if (btnsAnswerInputs[i].checked !== false) {
-//      btnAnswerConfirm.removeAttribute(`disabled`);
+//    if (BTNS_ANSWER_INPUT[i].checked !== false) {
+//      BTNS_ANSWER_CONFIRM.removeAttribute(`disabled`);
 //    }
 //  }
 }
 
 function getRandomResult() {
   const RANDOM_RESULT_INDEX = Math.floor(Math.random() * (3 - 0) + 0);
-  const RESULTS = [resultWinElement, resultLostTimeElement, resultLostTryElement];
+  const RESULTS = [RESULT_WIN_ELEMENT, RESULT_LOST_TIME_ELEMENT, RESULT_LOST_TRY_ELEMENT];
   return RESULTS[RANDOM_RESULT_INDEX];
 }
 
 validateBtnsAnswer();
 
-btnsAnswer.forEach(function (btnAnswer) {
-  btnAnswer.addEventListener(`click`, validateBtnsAnswer);
+BTNS_ANSWER.forEach(function (BTN_ANSWER) {
+  BTN_ANSWER.addEventListener(`click`, validateBtnsAnswer);
 });
-btnAnswerConfirm.addEventListener(`click`, () => insertInterface(getRandomResult()));
+BTNS_ANSWER_CONFIRM.addEventListener(`click`, () => insertInterface(getRandomResult()));
 
-export default levelGenreElement;
+export default LEVEL_GENRE_ELEMENT;

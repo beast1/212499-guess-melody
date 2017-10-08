@@ -1,6 +1,6 @@
 import {createElementByTemplate} from './util';
 
-const html = `
+const HTML = `
 <section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
@@ -9,6 +9,6 @@ const html = `
     <span role="button" tabindex="0" class="main-replay">Попробовать ещё раз</span>
   </section>`;
 
-const resultLostTryElement = createElementByTemplate(html);
+const RESULT_LOST_TRY_ELEMENT = createElementByTemplate(HTML);
 
-export default resultLostTryElement;
+export default RESULT_LOST_TRY_ELEMENT;
