@@ -1,7 +1,8 @@
-import {createElementByTemplate} from './util';
+import {createElementByTemplate, insertInterface} from './util';
+import WELCOME_ELEMENT from './welcome';
 
 const HTML = `
-<section class="main main--result">
+  <section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
     <h2 class="title">Какая жалость!</h2>
@@ -10,5 +11,8 @@ const HTML = `
   </section>`;
 
 const RESULT_LOST_TRY_ELEMENT = createElementByTemplate(HTML);
+const BTN_RESTART         = RESULT_LOST_TRY_ELEMENT.querySelector(`.main-replay`);
+
+BTN_RESTART.addEventListener(`click`, () => insertInterface(WELCOME_ELEMENT));
 
 export default RESULT_LOST_TRY_ELEMENT;

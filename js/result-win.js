@@ -1,4 +1,5 @@
-import {createElementByTemplate} from './util';
+import {createElementByTemplate, insertInterface} from './util';
+import WELCOME_ELEMENT from './welcome';
 
 const HTML = `
   <section class="main main--result">
@@ -13,5 +14,8 @@ const HTML = `
   </section>`;
 
 const RESULT_WIN_ELEMENT = createElementByTemplate(HTML);
+const BTN_RESTART         = RESULT_WIN_ELEMENT.querySelector(`.main-replay`);
+
+BTN_RESTART.addEventListener(`click`, () => insertInterface(WELCOME_ELEMENT));
 
 export default RESULT_WIN_ELEMENT;
