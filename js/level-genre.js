@@ -108,8 +108,8 @@ function getRandomResult() {
 validateBtnsAnswer();
 
 BTNS_ANSWER_INPUT.forEach(function (BTN_ANSWER_INPUT) {
-  BTN_ANSWER_INPUT.addEventListener(`click`, validateBtnsAnswer);
+  BTN_ANSWER_INPUT.addEventListener(`change`, validateBtnsAnswer);
 });
-BTNS_ANSWER_CONFIRM.addEventListener(`change`, () => insertInterface(getRandomResult()));
+BTNS_ANSWER_CONFIRM.addEventListener(`click`, () => insertInterface(getRandomResult()));
 
 export default LEVEL_GENRE_ELEMENT;
