@@ -11,7 +11,7 @@ const HTML = `
   </section>`;
 
 const RESULT_LOST_TRY_ELEMENT = createElementByTemplate(HTML);
-const BTN_RESTART         = RESULT_LOST_TRY_ELEMENT.querySelector(`.main-replay`);
+const BTN_RESTART = RESULT_LOST_TRY_ELEMENT.querySelector(`.main-replay`);
 
 BTN_RESTART.addEventListener(`click`, () => insertInterface(WELCOME_ELEMENT));
 

@@ -1,7 +1,7 @@
 import {createElementByTemplate, insertInterface} from './util';
 import LEVEL_GENRE_ELEMENT from './level-genre';
 
-const HTML                 = `
+const HTML = `
   <section class="main main--level main--level-artist">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
@@ -62,7 +62,7 @@ const HTML                 = `
     </div>
   </section>`;
 const LEVEL_ARTIST_ELEMENT = createElementByTemplate(HTML);
-const BTNS_ANSWER           = Array.from(LEVEL_ARTIST_ELEMENT.querySelectorAll(`.main-answer`));
+const BTNS_ANSWER = Array.from(LEVEL_ARTIST_ELEMENT.querySelectorAll(`.main-answer`));
 
 BTNS_ANSWER.forEach(function (BTN_ANSWER) {
   BTN_ANSWER.addEventListener(`click`, () => insertInterface(LEVEL_GENRE_ELEMENT));
