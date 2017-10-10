@@ -14,7 +14,7 @@ const html = `
   </template>`;
 
 const resultWinElement = createElementByTemplate(html);
-const btnRestart      = resultWinElement.querySelector(`.main-replay`);
+const btnRestart = resultWinElement.querySelector(`.main-replay`);
 
 btnRestart.addEventListener(`click`, () => insertInterface(welcomeElement));
 

@@ -11,7 +11,7 @@ const html = `
   </template>`;
 
 const resultLostTimeElement = createElementByTemplate(html);
-const btnRestart           = resultLostTimeElement.querySelector(`.main-replay`);
+const btnRestart = resultLostTimeElement.querySelector(`.main-replay`);
 
 btnRestart.addEventListener(`click`, () => insertInterface(welcomeElement));
 

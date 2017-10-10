@@ -3,7 +3,7 @@ import resultWinElement from './result-win';
 import resultLostTimeElement from './result-lost-time';
 import resultLostTryElement from './result-lost-try';
 
-const html                = `
+const html = `
   <template class="main main--level main--level-genre">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
@@ -86,8 +86,8 @@ const html                = `
       </form>
     </div>
   </template>`;
-const levelGenreElement   = createElementByTemplate(html);
-const btnsAnswerInput   = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
+const levelGenreElement = createElementByTemplate(html);
+const btnsAnswerInput = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
 const btnAnswerConfirm = levelGenreElement.querySelector(`.genre-answer-send`);
 
 function validateBtnsAnswer() {

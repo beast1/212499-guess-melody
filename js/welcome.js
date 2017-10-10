@@ -1,7 +1,7 @@
 import {createElementByTemplate, insertInterface} from './util';
 import levelArtistElement from './level-artist';
 
-const html           = `
+const html = `
   <template class="main main--welcome">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
     <button class="main-play">Начать игру</button>
@@ -13,7 +13,7 @@ const html           = `
     </p>
   </template>`;
 const welcomeElement = createElementByTemplate(html);
-const btnPlay       = welcomeElement.querySelector(`.main-play`);
+const btnPlay = welcomeElement.querySelector(`.main-play`);
 
 btnPlay.addEventListener(`click`, () => insertInterface(levelArtistElement));
 

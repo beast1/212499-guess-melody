@@ -11,7 +11,7 @@ const html = `
   </template>`;
 
 const resultLostTryElement = createElementByTemplate(html);
-const btnRestart          = resultLostTryElement.querySelector(`.main-replay`);
+const btnRestart = resultLostTryElement.querySelector(`.main-replay`);
 
 btnRestart.addEventListener(`click`, () => insertInterface(welcomeElement));
 
