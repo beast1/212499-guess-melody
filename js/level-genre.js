@@ -4,7 +4,7 @@ import resultLostTimeElement from './result-lost-time';
 import resultLostTryElement from './result-lost-try';
 
 const html = `
-  <template class="main main--level main--level-genre">
+  <section class="main main--level main--level-genre">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
         cx="390" cy="390" r="370"
@@ -85,7 +85,7 @@ const html = `
         <button class="genre-answer-send">Ответить</button>
       </form>
     </div>
-  </template>`;
+  </section>`;
 const levelGenreElement = createElementByTemplate(html);
 const btnsAnswerInput = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
 const btnAnswerConfirm = levelGenreElement.querySelector(`.genre-answer-send`);

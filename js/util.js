@@ -5,17 +5,17 @@
 const createElementByTemplate = (template) => {
   const temporaryWrap = document.createElement(`div`);
   temporaryWrap.innerHTML = template;
-  return temporaryWrap.querySelector(`template`);
+  return temporaryWrap.querySelector(`.main`);
 };
 
 
-function createInsertInterface() {
+const createInsertInterface = () => {
   const app = document.querySelector(`.app`);
-  return function (element) {
+  return (element) => {
     app.innerHTML = ``;
     app.appendChild(element);
   };
-}
+};
 const insertInterface = createInsertInterface();
 
 export {createElementByTemplate, insertInterface};

@@ -2,7 +2,7 @@ import {createElementByTemplate, insertInterface} from './util';
 import levelGenreElement from './level-genre';
 
 const html = `
-  <template class="main main--level main--level-artist">
+  <section class="main main--level main--level-artist">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
         cx="390" cy="390" r="370"
@@ -60,7 +60,7 @@ const html = `
         </div>
       </form>
     </div>
-  </template>`;
+  </section>`;
 const levelArtistElement = createElementByTemplate(html);
 const btnsAnswer = Array.from(levelArtistElement.querySelectorAll(`.main-answer`));
 

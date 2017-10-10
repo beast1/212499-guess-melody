@@ -2,7 +2,7 @@ import {createElementByTemplate, insertInterface} from './util';
 import levelArtistElement from './level-artist';
 
 const html = `
-  <template class="main main--welcome">
+  <section class="main main--welcome">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
     <button class="main-play">Начать игру</button>
     <h2 class="title main-title">Правила игры</h2>
@@ -11,7 +11,7 @@ const html = `
       Ошибиться можно 3 раза.<br>
       Удачи!
     </p>
-  </template>`;
+  </section>`;
 const welcomeElement = createElementByTemplate(html);
 const btnPlay = welcomeElement.querySelector(`.main-play`);
 
