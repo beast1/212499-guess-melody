@@ -1,9 +1,9 @@
 import {createElementByTemplate, insertInterface} from './util';
-import RESULT_WIN_ELEMENT from './result-win';
-import RESULT_LOST_TIME_ELEMENT from './result-lost-time';
-import RESULT_LOST_TRY_ELEMENT from './result-lost-try';
+import resultWinElement from './result-win';
+import resultLostTimeElement from './result-lost-time';
+import resultLostTryElement from './result-lost-try';
 
-const HTML = `
+const html                = `
   <template class="main main--level main--level-genre">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
@@ -86,30 +86,30 @@ const HTML = `
       </form>
     </div>
   </template>`;
-const LEVEL_GENRE_ELEMENT = createElementByTemplate(HTML);
-const BTNS_ANSWER_INPUT = Array.from(LEVEL_GENRE_ELEMENT.querySelectorAll(`.genre-answer input[name='answer']`));
-const BTNS_ANSWER_CONFIRM = LEVEL_GENRE_ELEMENT.querySelector(`.genre-answer-send`);
+const levelGenreElement   = createElementByTemplate(html);
+const btnsAnswerInput   = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
+const btnAnswerConfirm = levelGenreElement.querySelector(`.genre-answer-send`);
 
 function validateBtnsAnswer() {
-  const BTNS_ANSWER_INPUT_CHECKED = BTNS_ANSWER_INPUT.filter((BTN_ANSWER_INPUT) => BTN_ANSWER_INPUT.checked !== false);
-  if (BTNS_ANSWER_INPUT_CHECKED.length > 0) {
-    BTNS_ANSWER_CONFIRM.removeAttribute(`disabled`);
+  const btnsAnswerInputChecked = btnsAnswerInput.filter((btnAnswerInput) => btnAnswerInput.checked !== false);
+  if (btnsAnswerInputChecked.length > 0) {
+    btnAnswerConfirm.removeAttribute(`disabled`);
   } else {
-    BTNS_ANSWER_CONFIRM.setAttribute(`disabled`, ``);
+    btnAnswerConfirm.setAttribute(`disabled`, ``);
   }
 }
 
 function getRandomResult() {
   const RANDOM_RESULT_INDEX = Math.floor(Math.random() * 3);
-  const RESULTS = [RESULT_WIN_ELEMENT, RESULT_LOST_TIME_ELEMENT, RESULT_LOST_TRY_ELEMENT];
-  return RESULTS[RANDOM_RESULT_INDEX];
+  const results = [resultWinElement, resultLostTimeElement, resultLostTryElement];
+  return results[RANDOM_RESULT_INDEX];
 }
 
 validateBtnsAnswer();
 
-BTNS_ANSWER_INPUT.forEach(function (BTN_ANSWER_INPUT) {
-  BTN_ANSWER_INPUT.addEventListener(`change`, validateBtnsAnswer);
+btnsAnswerInput.forEach(function (btnAnswerInput) {
+  btnAnswerInput.addEventListener(`change`, validateBtnsAnswer);
 });
-BTNS_ANSWER_CONFIRM.addEventListener(`click`, () => insertInterface(getRandomResult()));
+btnAnswerConfirm.addEventListener(`click`, () => insertInterface(getRandomResult()));
 
-export default LEVEL_GENRE_ELEMENT;
+export default levelGenreElement;

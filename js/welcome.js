@@ -1,7 +1,7 @@
 import {createElementByTemplate, insertInterface} from './util';
-import LEVEL_ARTIST_ELEMENT from './level-artist';
+import levelArtistElement from './level-artist';
 
-const HTML = `
+const html           = `
   <template class="main main--welcome">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
     <button class="main-play">Начать игру</button>
@@ -12,9 +12,9 @@ const HTML = `
       Удачи!
     </p>
   </template>`;
-const WELCOME_ELEMENT = createElementByTemplate(HTML);
-const BTN_PLAY = WELCOME_ELEMENT.querySelector(`.main-play`);
+const welcomeElement = createElementByTemplate(html);
+const btnPlay       = welcomeElement.querySelector(`.main-play`);
 
-BTN_PLAY.addEventListener(`click`, () => insertInterface(LEVEL_ARTIST_ELEMENT));
+btnPlay.addEventListener(`click`, () => insertInterface(levelArtistElement));
 
-export default WELCOME_ELEMENT;
+export default welcomeElement;

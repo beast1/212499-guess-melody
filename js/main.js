@@ -1,4 +1,4 @@
 import {insertInterface} from './util';
-import WELCOME_ELEMENT from './welcome';
+import welcomeElement from './welcome';
 
-insertInterface(WELCOME_ELEMENT);
+insertInterface(welcomeElement);

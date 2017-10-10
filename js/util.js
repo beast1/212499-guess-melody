@@ -3,17 +3,17 @@
  * @return {Element} интерфейс в виде ноды
  */
 const createElementByTemplate = (template) => {
-  const TEMPORARY_WRAP = document.createElement(`div`);
-  TEMPORARY_WRAP.innerHTML = template;
-  return TEMPORARY_WRAP.querySelector(`template`);
+  const temporaryWrap = document.createElement(`div`);
+  temporaryWrap.innerHTML = template;
+  return temporaryWrap.querySelector(`template`);
 };
 
 
 function createInsertInterface() {
-  const APP = document.querySelector(`.app`);
+  const app = document.querySelector(`.app`);
   return function (element) {
-    APP.innerHTML = ``;
-    APP.appendChild(element);
+    app.innerHTML = ``;
+    app.appendChild(element);
   };
 }
 const insertInterface = createInsertInterface();

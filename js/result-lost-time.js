@@ -1,7 +1,7 @@
 import {createElementByTemplate, insertInterface} from './util';
-import WELCOME_ELEMENT from './welcome';
+import welcomeElement from './welcome';
 
-const HTML = `
+const html = `
   <template class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
@@ -10,9 +10,9 @@ const HTML = `
     <span role="button" tabindex="0" class="main-replay">Попробовать ещё раз</span>
   </template>`;
 
-const RESULT_LOST_TIME_ELEMENT = createElementByTemplate(HTML);
-const BTN_RESTART = RESULT_LOST_TIME_ELEMENT.querySelector(`.main-replay`);
+const resultLostTimeElement = createElementByTemplate(html);
+const btnRestart           = resultLostTimeElement.querySelector(`.main-replay`);
 
-BTN_RESTART.addEventListener(`click`, () => insertInterface(WELCOME_ELEMENT));
+btnRestart.addEventListener(`click`, () => insertInterface(welcomeElement));
 
-export default RESULT_LOST_TIME_ELEMENT;
+export default resultLostTimeElement;
