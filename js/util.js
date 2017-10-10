@@ -5,8 +5,7 @@
 const createElementByTemplate = (template) => {
   const TEMPORARY_WRAP = document.createElement(`div`);
   TEMPORARY_WRAP.innerHTML = template;
-  const ELEMENT = TEMPORARY_WRAP.querySelector(`.main`);
-  return ELEMENT;
+  return TEMPORARY_WRAP.querySelector(`template`);
 };
 
 
