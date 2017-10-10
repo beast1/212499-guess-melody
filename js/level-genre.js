@@ -90,26 +90,24 @@ const levelGenreElement = createElementByTemplate(html);
 const btnsAnswerInput = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
 const btnAnswerConfirm = levelGenreElement.querySelector(`.genre-answer-send`);
 
-function validateBtnsAnswer() {
+const validateBtnsAnswer = () => {
   const btnsAnswerInputChecked = btnsAnswerInput.filter((btnAnswerInput) => btnAnswerInput.checked !== false);
   if (btnsAnswerInputChecked.length > 0) {
     btnAnswerConfirm.removeAttribute(`disabled`);
   } else {
     btnAnswerConfirm.setAttribute(`disabled`, ``);
   }
-}
+};
 
-function getRandomResult() {
+const getRandomResult = () => {
   const RANDOM_RESULT_INDEX = Math.floor(Math.random() * 3);
   const results = [resultWinElement, resultLostTimeElement, resultLostTryElement];
   return results[RANDOM_RESULT_INDEX];
-}
+};
 
 validateBtnsAnswer();
 
-btnsAnswerInput.forEach(function (btnAnswerInput) {
-  btnAnswerInput.addEventListener(`change`, validateBtnsAnswer);
-});
+btnsAnswerInput.forEach((btnAnswerInput) => btnAnswerInput.addEventListener(`change`, validateBtnsAnswer));
 btnAnswerConfirm.addEventListener(`click`, () => insertInterface(getRandomResult()));
 
 export default levelGenreElement;

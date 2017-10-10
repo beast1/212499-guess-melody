@@ -64,9 +64,6 @@ const html = `
 const levelArtistElement = createElementByTemplate(html);
 const btnsAnswer = Array.from(levelArtistElement.querySelectorAll(`.main-answer`));
 
-btnsAnswer.forEach(function (btnAnswer) {
-  btnAnswer.addEventListener(`click`, () => insertInterface(levelGenreElement));
-  return true;
-});
+btnsAnswer.forEach((btnAnswer) => btnAnswer.addEventListener(`click`, () => insertInterface(levelGenreElement)));
 
 export default levelArtistElement;
