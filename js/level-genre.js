@@ -1,9 +1,10 @@
 import {createElementByTemplate, insertInterface} from './util';
-import resultWinElement from './result-win';
-import resultLostTimeElement from './result-lost-time';
-import resultLostTryElement from './result-lost-try';
+import createResultWinElement from './result-win';
+import createResultLostTimeElement from './result-lost-time';
+import createResultLostTryElement from './result-lost-try';
 
-const html = `
+const createLevelGenreElement = () => {
+  const html = `
   <section class="main main--level main--level-genre">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
@@ -86,28 +87,31 @@ const html = `
       </form>
     </div>
   </section>`;
-const levelGenreElement = createElementByTemplate(html);
-const btnsAnswerInput = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
-const btnAnswerConfirm = levelGenreElement.querySelector(`.genre-answer-send`);
+  const levelGenreElement = createElementByTemplate(html);
+  const btnsAnswerInput = Array.from(levelGenreElement.querySelectorAll(`.genre-answer input[name='answer']`));
+  const btnAnswerConfirm = levelGenreElement.querySelector(`.genre-answer-send`);
 
-const validateBtnsAnswer = () => {
-  const btnsAnswerInputChecked = btnsAnswerInput.filter((btnAnswerInput) => btnAnswerInput.checked !== false);
-  if (btnsAnswerInputChecked.length > 0) {
-    btnAnswerConfirm.removeAttribute(`disabled`);
-  } else {
-    btnAnswerConfirm.setAttribute(`disabled`, ``);
-  }
+  const validateBtnsAnswer = () => {
+    const btnsAnswerInputChecked = btnsAnswerInput.filter((btnAnswerInput) => btnAnswerInput.checked !== false);
+    if (btnsAnswerInputChecked.length > 0) {
+      btnAnswerConfirm.removeAttribute(`disabled`);
+    } else {
+      btnAnswerConfirm.setAttribute(`disabled`, ``);
+    }
+  };
+
+  const getRandomResult = () => {
+    const RANDOM_RESULT_INDEX = Math.floor(Math.random() * 3);
+    const results = [createResultWinElement(), createResultLostTimeElement(), createResultLostTryElement()];
+    return results[RANDOM_RESULT_INDEX];
+  };
+
+  validateBtnsAnswer();
+
+  btnsAnswerInput.forEach((btnAnswerInput) => btnAnswerInput.addEventListener(`change`, validateBtnsAnswer));
+  btnAnswerConfirm.addEventListener(`click`, () => insertInterface(getRandomResult()));
+
+  return levelGenreElement;
 };
 
-const getRandomResult = () => {
-  const RANDOM_RESULT_INDEX = Math.floor(Math.random() * 3);
-  const results = [resultWinElement, resultLostTimeElement, resultLostTryElement];
-  return results[RANDOM_RESULT_INDEX];
-};
-
-validateBtnsAnswer();
-
-btnsAnswerInput.forEach((btnAnswerInput) => btnAnswerInput.addEventListener(`change`, validateBtnsAnswer));
-btnAnswerConfirm.addEventListener(`click`, () => insertInterface(getRandomResult()));
-
-export default levelGenreElement;
+export default createLevelGenreElement;

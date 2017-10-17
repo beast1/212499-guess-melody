@@ -1,7 +1,8 @@
 import {createElementByTemplate, insertInterface} from './util';
-import welcomeElement from './welcome';
+import createWelcomeElement from './welcome';
 
-const html = `
+const createResultLostTryElement = () => {
+  const html = `
   <section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
@@ -9,10 +10,12 @@ const html = `
     <div class="main-stat">У вас закончились все попытки.<br>Ничего, повезёт в следующий раз!</div>
     <span role="button" tabindex="0" class="main-replay">Попробовать ещё раз</span>
   </section>`;
+  const resultLostTryElement = createElementByTemplate(html);
+  const btnRestart = resultLostTryElement.querySelector(`.main-replay`);
 
-const resultLostTryElement = createElementByTemplate(html);
-const btnRestart = resultLostTryElement.querySelector(`.main-replay`);
+  btnRestart.addEventListener(`click`, () => insertInterface(createWelcomeElement()));
 
-btnRestart.addEventListener(`click`, () => insertInterface(welcomeElement));
+  return resultLostTryElement;
+};
 
-export default resultLostTryElement;
+export default createResultLostTryElement;
