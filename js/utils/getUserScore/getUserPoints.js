@@ -1,4 +1,4 @@
-const getUserScore = (answers, REST_ATTEMPTS) => {
+const getUserPoints = (answers, REST_ATTEMPTS) => {
   let USER_POINTS = answers.reduce((previousValue, currentValue) => {
     let getAnswerPoints = () => {
       if (currentValue.passed === true) {
@@ -16,4 +16,4 @@ const getUserScore = (answers, REST_ATTEMPTS) => {
   return USER_POINTS;
 };
 
-export default getUserScore;
+export default getUserPoints;
