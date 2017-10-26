@@ -1,5 +1,5 @@
 import assert from 'assert';
-import getUserPoints from './getUserScore';
+import getUserPoints from './getUserPoints';
 
 const answers1 = [
   {passed: false, time: 35},
