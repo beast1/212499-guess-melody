@@ -1,7 +1,7 @@
 import assert from 'assert';
 import getUserResult from './getUserResult';
 
-const otherGamesResults = [];
+const otherGamesResults = [4, 5, 8, 10, 11, 12, 14, 15, 19];
 const currentGameResult1 = {
   POINTS: 20,
   REST_ATTEMPTS: 3,
@@ -19,8 +19,8 @@ const currentGameResult3 = {
 };
 
 describe(`getUserScore на выходе отдаёт кол-во набранных очков`, () => {
-  it(`Если игрок выиграл, то его результат должен быть выведен в виде фразы: Вы заняли 1-ое место из 10 игроков. Это лучше чем у 100%`, () => {
-    assert(getUserResult(otherGamesResults, currentGameResult1) === `«Вы заняли 1-ое место из 10 игроков. Это лучше чем у 100%»`);
+  it(`Если игрок выиграл, то его результат должен быть выведен в виде фразы: Вы заняли 1 место из 10 игроков. Это лучше чем у 90%`, () => {
+    assert(getUserResult(otherGamesResults, currentGameResult1) === `«Вы заняли 1 место из 10 игроков. Это лучше чем у 90%»`);
   });
 
   it(`Если игрок проиграл и у него закончилось время, то должна быть выведена фраза: «Время вышло! Вы не успели отгадать все мелодии»`, () => {
