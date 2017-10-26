@@ -1,4 +1,4 @@
-const getUserPoints = (answers, REST_ATTEMPTS) => {
+const getUserPoints = (answers) => {
   let USER_POINTS = answers.reduce((previousValue, currentValue) => {
     let getAnswerPoints = () => {
       if (currentValue.passed === true) {
