@@ -1,6 +1,6 @@
 const getTimer = (value) => {
   return {
-    value: value,
+    value,
     tick() {
       if (value - 1 === 0) {
         return `Время вышло`;
