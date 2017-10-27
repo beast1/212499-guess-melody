@@ -16,12 +16,12 @@ const getUserResult = (otherGamesResults, currentGameResult) => {
     const getUsersNumber = () => {
       return otherGamesResults.length + 1;
     };
-    const getUserRateSucess = () => {
+    const getUserRateSuccess = () => {
       const number = getUsersNumber();
       const place = getUserPlace();
       return `${(number - place) / number * 100}%`;
     };
-    return `«Вы заняли ${getUserPlace()} место из ${getUsersNumber()} игроков. Это лучше чем у ${getUserRateSucess()}»`;
+    return `«Вы заняли ${getUserPlace()} место из ${getUsersNumber()} игроков. Это лучше чем у ${getUserRateSuccess()}»`;
   }
 };
 
