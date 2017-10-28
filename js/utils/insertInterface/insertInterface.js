@@ -1,7 +1,6 @@
 const createInsertInterface = () => {
   const app = document.querySelector(`.app`);
   return (element) => {
-    app.innerHTML = ``;
     app.appendChild(element);
   };
 };

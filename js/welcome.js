@@ -1,6 +1,7 @@
 import createElementByTemplate from './utils/createElementByTemplate/createElementByTemplate';
 import insertInterface from './utils/insertInterface/insertInterface';
 import createLevelArtistElement from './level-artist';
+import resetWindow from './utils/resetWindow/resetWindow';
 
 const createWelcomeElement = () => {
   const html = `
@@ -17,7 +18,10 @@ const createWelcomeElement = () => {
   const welcomeElement = createElementByTemplate(html);
   const btnPlay = welcomeElement.querySelector(`.main-play`);
 
-  btnPlay.addEventListener(`click`, () => insertInterface(createLevelArtistElement()));
+  btnPlay.addEventListener(`click`, () => {
+    resetWindow();
+    insertInterface(createLevelArtistElement());
+  });
 
   return welcomeElement;
 };

@@ -1,4 +1,5 @@
 import createElementByTemplate from './utils/createElementByTemplate/createElementByTemplate';
+import resetWindow from './utils/resetWindow/resetWindow';
 import insertInterface from './utils/insertInterface/insertInterface';
 import getUserResult from './utils/getUserResult/getUserResult';
 import createWelcomeElement from './welcome';
@@ -34,7 +35,10 @@ const createResult = () => {
   const resultLostTryElement = createElementByTemplate(html);
   const btnRestart = resultLostTryElement.querySelector(`.main-replay`);
 
-  btnRestart.addEventListener(`click`, () => insertInterface(createWelcomeElement()));
+  btnRestart.addEventListener(`click`, () => {
+    resetWindow();
+    insertInterface(createWelcomeElement());
+  });
 
   return resultLostTryElement;
 };

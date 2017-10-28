@@ -1,4 +1,5 @@
 import createElementByTemplate from './utils/createElementByTemplate/createElementByTemplate';
+import resetWindow from './utils/resetWindow/resetWindow';
 import insertInterface from './utils/insertInterface/insertInterface';
 import createResult from './result';
 
@@ -66,7 +67,10 @@ const createLevelArtistElement = () => {
   const levelArtistElement = createElementByTemplate(html);
   const btnsAnswer = Array.from(levelArtistElement.querySelectorAll(`.main-answer`));
 
-  btnsAnswer.forEach((btnAnswer) => btnAnswer.addEventListener(`click`, () => insertInterface(createResult())));
+  btnsAnswer.forEach((btnAnswer) => btnAnswer.addEventListener(`click`, () => {
+    resetWindow();
+    insertInterface(createResult());
+  }));
 
   return levelArtistElement;
 };
