@@ -1,6 +1,6 @@
 import createElementByTemplate from './utils/createElementByTemplate/createElementByTemplate';
 import insertInterface from './utils/insertInterface/insertInterface';
-import createLevelGenreElement from './level-genre';
+import createResult from './result';
 
 const createLevelArtistElement = () => {
   const html = `
@@ -66,7 +66,7 @@ const createLevelArtistElement = () => {
   const levelArtistElement = createElementByTemplate(html);
   const btnsAnswer = Array.from(levelArtistElement.querySelectorAll(`.main-answer`));
 
-  btnsAnswer.forEach((btnAnswer) => btnAnswer.addEventListener(`click`, () => insertInterface(createLevelGenreElement())));
+  btnsAnswer.forEach((btnAnswer) => btnAnswer.addEventListener(`click`, () => insertInterface(createResult())));
 
   return levelArtistElement;
 };

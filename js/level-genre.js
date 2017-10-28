@@ -1,8 +1,6 @@
 import createElementByTemplate from './utils/createElementByTemplate/createElementByTemplate';
 import insertInterface from './utils/insertInterface/insertInterface';
-import createResultWinElement from './result-win';
-import createResultLostTimeElement from './result-lost-time';
-import createResultLostTryElement from './result-lost-try';
+import createResult from './result';
 
 const createLevelGenreElement = () => {
   const html = `
@@ -101,16 +99,10 @@ const createLevelGenreElement = () => {
     }
   };
 
-  const getRandomResult = () => {
-    const RANDOM_RESULT_INDEX = Math.floor(Math.random() * 3);
-    const results = [createResultWinElement(), createResultLostTimeElement(), createResultLostTryElement()];
-    return results[RANDOM_RESULT_INDEX];
-  };
-
   validateBtnsAnswer();
 
   btnsAnswerInput.forEach((btnAnswerInput) => btnAnswerInput.addEventListener(`change`, validateBtnsAnswer));
-  btnAnswerConfirm.addEventListener(`click`, () => insertInterface(getRandomResult()));
+  btnAnswerConfirm.addEventListener(`click`, () => insertInterface(createResult()));
 
   return levelGenreElement;
 };
