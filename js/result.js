@@ -18,14 +18,13 @@ const createResult = () => {
     <!--IF ATTEMPTS-->
     <h2 class="title">Какая жалость!</h2>
     <!--IF TIME-->
-    <h2 class="title">Увы и ах!</h2>
+    <!--<h2 class="title">Увы и ах!</h2>-->
     <!--IF WIN-->
-    <h2 class="title">Вы настоящий меломан!</h2>
-    <!--IF WIN-->
-    <div class="main-stat">За 3 минуты и 25 секунд
-      <br>вы набрали 12 баллов (8 быстрых)
-      <br>совершив 3 ошибки
-    </div>
+    <!--<h2 class="title">Вы настоящий меломан!</h2>-->
+    <!--<div class="main-stat">За 3 минуты и 25 секунд-->
+      <!--<br>вы набрали 12 баллов (8 быстрых)-->
+      <!--<br>совершив 3 ошибки-->
+    <!--</div>-->
     <div class="main-stat">${getUserResult(otherGamesResults, currentGameResult3)}</div>
     <!--IF WIN-->
     <!--<span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>-->
