@@ -1,8 +1,8 @@
 const getUserResult = (otherGamesResults, currentGameResult) => {
   if (currentGameResult.REST_ATTEMPTS === 0) {
-    return `«У вас закончились все попытки.<br>Ничего, повезёт в следующий раз!»`;
+    return `У вас закончились все попытки.<br>Ничего, повезёт в следующий раз!`;
   } else if (currentGameResult.REST_TIME === 0) {
-    return `«Время вышло! Вы не успели отгадать все мелодии»`;
+    return `Время вышло!<br>Вы не успели отгадать все мелодии`;
   } else {
     const getUserPlace = () => {
       const reverseOtherGamesResults = otherGamesResults.sort((a, b) => b - a);
@@ -21,7 +21,7 @@ const getUserResult = (otherGamesResults, currentGameResult) => {
       const place = getUserPlace();
       return `${(number - place) / number * 100}%`;
     };
-    return `«Вы заняли ${getUserPlace()} место из ${getUsersNumber()} игроков. Это лучше чем у ${getUserRateSuccess()}»`;
+    return `Вы заняли ${getUserPlace()} место из ${getUsersNumber()} игроков. Это лучше чем у ${getUserRateSuccess()}`;
   }
 };
 
