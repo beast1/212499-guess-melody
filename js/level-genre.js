@@ -1,4 +1,5 @@
-import {createElementByTemplate, insertInterface} from './util';
+import createElementByTemplate from './utils/createElementByTemplate/createElementByTemplate';
+import insertInterface from './utils/insertInterface/insertInterface';
 import createResultWinElement from './result-win';
 import createResultLostTimeElement from './result-lost-time';
 import createResultLostTryElement from './result-lost-try';

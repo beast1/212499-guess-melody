@@ -8,14 +8,4 @@ const createElementByTemplate = (template) => {
   return temporaryWrap.content.cloneNode(true);
 };
 
-
-const createInsertInterface = () => {
-  const app = document.querySelector(`.app`);
-  return (element) => {
-    app.innerHTML = ``;
-    app.appendChild(element);
-  };
-};
-const insertInterface = createInsertInterface();
-
-export {createElementByTemplate, insertInterface};
+export default createElementByTemplate;

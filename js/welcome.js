@@ -1,4 +1,5 @@
-import {createElementByTemplate, insertInterface} from './util';
+import createElementByTemplate from './utils/createElementByTemplate/createElementByTemplate';
+import insertInterface from './utils/insertInterface/insertInterface';
 import createLevelArtistElement from './level-artist';
 
 const createWelcomeElement = () => {
