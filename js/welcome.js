@@ -3,7 +3,7 @@ import insertInterface from './utils/insertInterface/insertInterface';
 import createLevelArtistElement from './level-artist';
 import resetWindow from './utils/resetWindow/resetWindow';
 
-import {initialState, question} from './data';
+import {initialState, levels} from './data';
 
 const createWelcomeElement = () => {
   const html = `
@@ -22,7 +22,7 @@ const createWelcomeElement = () => {
 
   btnPlay.addEventListener(`click`, () => {
     resetWindow();
-    insertInterface(createLevelArtistElement(initialState, question));
+    insertInterface(createLevelArtistElement(initialState, levels[initialState.level]));
   });
 
   return welcomeElement;

@@ -1,3 +1,5 @@
+import getRandomInt from './utils/getRandomInt/getRandomInt';
+
 const initialState = {
   level: 0,
   lives: 3,
@@ -53,7 +55,7 @@ console.log(audios);
 console.log(audios[0]);
 console.log(audios[0].src);
 
-const question = {
+const levels = [{
   audioSrc: audios[0].src,
   answers: new Set([{
     img: audios[0].image,
@@ -68,8 +70,36 @@ const question = {
     artist: audios[2].artist,
     isTrue: false
   }])
-};
+}, {
+  audioSrc: audios[4].src,
+  answers: new Set([{
+    img: audios[0].image,
+    artist: audios[0].artist,
+    isTrue: true
+  }, {
+    img: audios[4].image,
+    artist: audios[4].artist,
+    isTrue: true
+  }, {
+    img: audios[2].image,
+    artist: audios[2].artist,
+    isTrue: false
+  }])
+}, {
+  audioSrc: audios[0].src,
+  answers: new Set([{
+    img: audios[0].image,
+    artist: audios[0].artist,
+    isTrue: true
+  }, {
+    img: audios[1].image,
+    artist: audios[1].artist,
+    isTrue: false
+  }, {
+    img: audios[2].image,
+    artist: audios[2].artist,
+    isTrue: false
+  }])
+}];
 
-console.log(question.answers);
-
-export {initialState, question};
+export {initialState, levels};
